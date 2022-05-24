@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <%- include('layout/navbar')%>
+      <h1 style="text-align:center;">User Data</h1>
+      <table class="table">
+          <tr>
+              <th>
+                  <checkbox> </checkbox>
+              </th>
+              <th>
+                 Name
+              </th>
+              <th>
+                Email
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                Postcode
+            </th>
+        
+          </tr>
+          <tr>
+            <% for(let i=0; i<data.length; i++) { %>
+        
+                  <tr>
+                  <td><img src="/img/<%=data[i].img%>"  load="lazy" width="40px" alt="Image data" ></td>
+                  <td><%=data[i].name %> </td>
+                  <td><%=data[i].email %> </td>
+                  <td><%=data[i].phone %></td>
+                  <td><%=data[i].country %></td>
+                  <td><%=data[i].state %></td>
+                  <td><%=data[i].city %></td>
+                  <td><%=data[i].address %></td>
+                  <td><%=data[i].postcode %></td>
+             
+            
+             
+             <td><a href="/delete/<%=data[i]._id%>">  <button class="btn btn-danger">  Delete</button></a></td>
+             <td><a href="/data/<%=data[i]._id%>">  <button class="btn btn-warning">  Update</button></a></td>
+            </tr>
+            <% } %>
+          </tr>
+
+      </table>
+
+   
+     
+    
+  </body>
+</html>
